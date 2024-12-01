@@ -1,33 +1,18 @@
-import Prelude
-import Data.Char (ord)
+import Data.List.Split (splitOn)
 
--- solution
-solution :: [String] -> Int
-solution = product . map (ord . head)
+-- part 1
+solution1 :: [(Int, Int)] -> Int
+solution1 = undefined
 
+-- part 2
+solution2 :: [(Int, Int)] -> Int
+solution2 = undefined
 
 -- print
 main :: IO ()
 main = do
   content <- readFile "input.txt"
-  let sol = solution (lines content)
-  print sol
-
--- readDB :: IO [String]
--- readDB = do dbl <- readFile "input.txt"
---             let db = map readLine (lines dbl)
---             putStrLn (force (show db) `seq` "Done")
---             return db
-
--- readLine :: String -> (String,String)
--- readLine str = (a,(c,b))
---     where
---       (a,str2) = splitUpon ',' str
---       (b,c)    = splitUpon ',' str2
-
--- splitUpon :: Char -> String -> (String,String)
--- splitUpon _ "" = ("","")
--- splitUpon c (x:xs) | x == c    = ("",xs)
---                    | otherwise = (x:ys,zs)
---                    where
---                      (ys,zs) = splitUpon c xs
+  let parse line = let [a, b] = splitOn "   " line in (read a, read b)
+  let parsedLines = map parse (lines content)
+  print (solution1 parsedLines)
+  print (solution2 parsedLines)
