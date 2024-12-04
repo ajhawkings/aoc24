@@ -1,18 +1,24 @@
 import Data.List.Split (splitOn)
 
 -- part 1
-solution1 :: [[Int]] -> Int
+solution1 :: [[Char]] -> Int
 solution1 = undefined
 
 -- part 2
-solution2 :: [[Int]] -> Int
+solution2 :: [[Char]] -> Int
 solution2 = undefined
 
--- print
 main :: IO ()
 main = do
-  content <- readFile "input.txt"
-  let parse line = map read (splitOn " " line) :: [Int]
-  let parsedLines = map parse (lines content)
-  print (solution1 parsedLines)
-  print (solution2 parsedLines)
+  -- input
+  input <- readFile "input.txt"
+  example <- readFile "example.txt"
+  -- parse
+  let parse = lines
+  -- let parse content = map (map read . splitOn " ") (lines content) :: [[Int]]
+  -- output
+  putStrLn ("Example 1:   " ++ show (solution1 (parse example)))
+  putStrLn ("Solution 1:  " ++ show (solution1 (parse input)))
+  putStrLn ""
+  putStrLn ("Example 2:   " ++ show (solution2 (parse example)))
+  putStrLn ("Solution 2:  " ++ show (solution2 (parse input)))
