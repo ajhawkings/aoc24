@@ -1,5 +1,3 @@
-import Data.List.Split (splitOn)
-
 -- part 1
 solution1 :: [[Char]] -> Int
 solution1 = undefined
